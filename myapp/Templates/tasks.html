@@ -1,0 +1,21 @@
+<h1 class="text-center my-4">Tasks</h1>
+
+{% for task in tasks %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title {% if task.done %}text-success{% else %}text-danger{% endif %}">
+            {{task.title}}
+        </h5>
+        <p class="card-text text-muted">
+            Project: {{task.project.name}}
+        </p>
+        <p class="small">
+            {% if task.done %}
+                <span class="badge bg-success">Completed</span>
+            {% else %}
+                <span class="badge bg-warning">Pending</span>
+            {% endif %}
+        </p>
+    </div>
+</div>
+{% endfor %}
